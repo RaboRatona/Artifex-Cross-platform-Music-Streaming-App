@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>User Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">
+            Register
+        </div>
+
+        <div class="form">
+            <div class="input_field">
+                <input type="text" placeholder="Email" class="input" id="email">
+                <i class="far fa-envelope"></i>
+                <span class = "error"><p id="email_error"></p></span>
+            </div>
+            <div class="input_field">
+                <input type="password" placeholder="Password" class="input" id="password">
+                <i class="fas fa-lock"></i>
+                <span class = "error"><p id="password_error"></p></span>
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="First name" class="input" id="firstName">
+                <i class="fas fa-user"></i>
+                <span class = "error"><p id="firstname_error"></p></span>
+            </div>
+            <div class=" input_field">
+                <input type="text" placeholder="Last Name" class="input" id="lastName">
+                <i class="fas fa-user"></i>
+                <span class = "error"><p id="lastname_error"></p></span>
+            </div>
+            <div class=" input_field">
+                <input type="text" placeholder="Phone Number" class="input" id="phoneNumber">
+                <i class="fas fa-phone"></i>
+                <span class = "error"><p id="phonenumber_error"></p></span>
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Bank Account Number" class="input" id="accountNumber">
+                <i class="fas fa-dollar-sign"></i>
+                <span class = "error"><p id="accountnumber_error"></p></span>
+            </div>
+
+            <div class="input_field">
+                <label>Date Of Birth</label>
+                <input type="date" name="dob" id="birthday">
+                <span class = "error"><p id="birthdate_error"></p></span>
+            </div>
+            <div class="btn">
+                <button onclick="registerUser()">Register</button>
+            </div>
+            <br>
+            <br>
+            <div class="link">
+                <a href="index.html">Return to Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-firestore.js"></script>
+    <script src='userregistration.js'></script>
+</footer>
+
+</html>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "212647390348",
+    "firebase_url": "https://artifex-a904f.firebaseio.com",
+    "project_id": "artifex-a904f",
+    "storage_bucket": "artifex-a904f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212647390348:android:29b4fbad4a55bf85dbdfa9",
+        "android_client_info": {
+          "package_name": "com.example.artifex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212647390348-pbmas8fsi1hpe4g71inmjr0oikigut9f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8vjy4PfcaWXmRkvvLWdAp_1VhSPOX3JY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212647390348-pbmas8fsi1hpe4g71inmjr0oikigut9f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

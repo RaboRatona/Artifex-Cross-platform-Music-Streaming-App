@@ -1,0 +1,76 @@
+.navbarColor {
+    background-color: rgb(239, 82, 97, 1) !important;
+}
+
+.navbarHeader {
+    color: white !important;
+}
+
+.wrapper {
+    width: 80%;
+    margin: auto;
+    border-radius: 20px; 
+    padding: 20px;
+}
+
+main {
+    text-align: center;
+    background-color: rgb(40, 40, 40);
+    flex: 2;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column;
+}
+
+.labels {
+    text-align: left;
+    color: white;
+}
+
+.label {
+    text-align: left;
+} 
+
+h1{
+    color: white;
+    padding: 1.5vh;
+}
+
+.buttonComplete{
+    color: white;
+    background-color: transparent;
+    border-color: rgb(239, 82, 97, 1);
+    border-radius: 20px;
+    width: 180px;
+    height: 40px;
+}
+
+.buttonComplete:hover{
+    color: white;
+    background-color: rgb(239, 82, 97, 1);
+    border-color:  white;
+    border-radius: 20px;
+}
+
+.hidden{
+    display: none;
+}
+
+.row~.invalid-feedback{
+    display: block;
+}

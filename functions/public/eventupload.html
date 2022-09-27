@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./static/css/register.css">
+    <link rel="stylesheet" href="./static/css/navbar.css">
+    <link rel="stylesheet" href="./static/css/upload.css">
+    <title>Event Upload</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("header").load("header.html");
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div class="alert alert-success hidden" id="success" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Aww yeah, you successfully uploaded a new event. Go back to the homescreen to discover your files.</p>
+            <hr>
+            <p class="mb-0">Hope to see you again, soon. You will be automatically redirected.</p>
+        </div>
+        <div class="alert alert-warning alert-dismissible fade show hidden" id="al" role="alert">
+            <strong>Holy guacamole!</strong> You need a creator account to access this page.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div id="overlay">
+            <div class="spinner-border text-danger full" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <p id="state">Uploading</p>
+        </div>
+        <div class="wrapper">
+            <div class="alert alert-warning alert-dismissible fade show hidden" id="globalErr" role="alert">
+                <strong>Holy guacamole!</strong>
+                <p id="globalErrText"></p>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <h1>Please complete event details</h1>
+            <form class="form-horizontal" action="#">
+
+                <div class="form-group row">
+                    <label id="fnr" class="control-label col-sm-2 labels" for="bandName">Band Name</label>
+                    <div class="col-sm-10">
+                        <input id="bandName" class="form-control" type="text" placeholder="Band Name" required>
+                        <div id="errorBandName" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label id="fnr" class="control-label col-sm-2 labels" for="eventTitle">Event Title</label>
+                    <div class="col-sm-10">
+                        <input id="eventTitle" class="form-control" type="text" placeholder="Event Title" required>
+                        <div id="errorEventTitle" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label id="fnr" class="control-label col-sm-2 labels" for="description">Description</label>
+                    <div class="col-sm-10">
+                        <input id="description" class="form-control" type="text" placeholder="Description... Max 20 characters" required>
+                        <div id="errorDescription" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2 labels" for="coverURL">Event Poster</label>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="coverURL" accept="image/jpg" required>
+                            <label class="custom-file-label label" for="coverURL" accept="images/jpg">Choose
+                                file...</label>
+                            <div id="errorCoverURL" class="invalid-feedback">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <label class="control-label col-sm-2 labels" for="startDate">Start Date</label>
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input id="startDate" class="form-control" type="date" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input id="startDate_time" class="form-control" type="time" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="errorStartDate" class="invalid-feedback">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label class="control-label col-sm-2 labels" for="endDate">End Date</label>
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input id="endDate" class="form-control" type="date" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input id="endDate_time" class="form-control" type="time" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="errorEndDate" class="invalid-feedback">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2 labels" for="location">Location</label>
+                    <div class="col-sm-10">
+                        <input id="location" class="form-control" type="text" placeholder="Location" required>
+                        <div id="errorLocation" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label id="fnr" class="control-label col-sm-2 labels" for="compuTicket">Event Link</label>
+                    <div class="col-sm-10">
+                        <input id="compuTicket" class="form-control" type="text" placeholder="Computicket link" required>
+                        <div id="errorCompuTicket" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="buttonComplete" onclick="completeUpload()">Add event</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <script src="/__/firebase/8.0.0/firebase-app.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="/__/firebase/8.0.0/firebase-auth.js"></script>
+        <script src="/__/firebase/8.0.1/firebase-firestore.js"></script>
+        <script src="/__/firebase/8.0.1/firebase-storage.js"></script>
+        <!-- Load the Firebase SDKs before loading this file -->
+        <script src="/__/firebase/init.js"></script>
+        <script src="./static/js/logout.js"></script>
+        <script src="./static/js/rejects.js"></script>
+        <script src="./static/js/eventUpload.js"></script>
+    </footer>
+</body>
+
+</html>

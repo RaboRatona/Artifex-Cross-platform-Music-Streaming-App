@@ -1,0 +1,319 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Profile</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="./static/css/view-profile.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="./static/css/navbar.css">
+<script>
+  $(function () {
+    $("header").load("header.html");
+  });
+</script>
+</head>
+    <body>
+      <header>
+     
+</header>
+<main>
+  <div class="alert alert-success hidden" id="success" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>Aww yeah, you have completed your profile. You will be redirected now</p>
+  </div>
+  <div id="overlay">
+    <div class="spinner-border text-danger full" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <p id="state">Uploading</p>
+  </div>
+  <div class="wrapper">
+    <div class="alert alert-warning alert-dismissible fade show hidden" id="globalErr" role="alert">
+      <strong>Holy guacamole!</strong>
+      <p id="globalErrText"></p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form class="form-horizontal" action="#">
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+            src="./static/images/user-profile.png"><span
+            class="font-weight-bold" id="fullName"></span><span class="text-black-50" id="email"></span><span> </span></div>
+<div class="row">
+  <div class="col">
+    
+  </div>
+  
+  <div class="col-mb-5">
+    <button type="button" class="btn btn-light" id="sign-out" onclick="logout()">Sign Out</button>
+  </div>
+  <div class="col">
+    
+  </div>
+</div>
+      </div>
+      <div class="col-md-9 border-right">
+        <div class="p-3 py-5">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right">Profile Settings</h4>
+          </div>
+           <div class="form-group row artist hidden">
+                    <label class="control-label col-sm-2 labels" for="bandName">Band Name</label>
+                    <div class="col-sm-10">
+                        <input id="bandName" class="form-control" type="text" placeholder="Band Name" required>
+                        <div id="errorBandName" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dynamic_section">
+                    <div class="form-group row artist hidden names">
+                        <label class="control-label col-sm-2 labels" for="bandMemberName1">Band Member Names</label>
+                       <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <input id="bandMemberName1" class="form-control bandMemberName" type="text" placeholder="Band Member Name" >
+                                </div>
+                                <div class="col-sm-5 custom-file">
+                                    <input type="file" class="custom-file-input bandMemberPhoto" id="bandMemberPhoto1" required>
+                                    <label id="bandMemberPhotoLabel1" class="custom-file-label label" for="bandMemberPhoto1">Band Member Picture</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="button" class="form-group form-control" id="addbutton">Add Member</button>
+                                </div>
+                            </div>
+                            <div id="errorBandMemberName1" class="invalid-feedback"></div>
+                        </div> 
+                    </div>
+                </div>
+
+
+                <div class="form-group row artist hidden">
+                    <label class="control-label col-sm-2 labels" for="bandLogoURL">Band Logo</label>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="bandLogoURL" required>
+                            <label class="custom-file-label label" for="bandLogoURL">Choose file...</label>
+                            <div id="errorBandLogoURL" class="invalid-feedback">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row artist hidden">
+                    <label class="control-label col-sm-2 labels" for="streetAddress">Street Address</label>
+                    <div class="col-sm-10">
+                        <input id="streetAddress" class="form-control" type="text" placeholder="Street Address" required>
+                        <div id="errorStreetAddress" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row artist hidden">
+                    <label class="control-label col-sm-2 labels" for="suburb">Suburb</label>
+                    <div class="col-sm-10">
+                        <input id="suburb" class="form-control" type="text" placeholder="Suburb" required>
+                        <div id="errorSuburb" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row artist hidden">
+                    <label class="control-label col-sm-2 labels" for="province">Province</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="Province" id="province">
+                            <option value="Gauteng">Gauteng</option>
+                            <option value="Limpopo">Limpopo</option>
+                            <option value="North West">North West</option>
+                            <option value="Northern Cape">Northern Cape</option>
+                            <option value="Eastern Cape">Eastern Cape</option>
+                            <option value="Western Cape">Western Cape</option>
+                            <option value="Free State">Free State</option>
+                            <option value="Kwa-Zulu Natal">Kwa-Zulu Natal</option>
+                            <option value="Mpumalanga">MpumaLanga</option>
+                        </select>
+                        <div id="errorProvince" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row artist hidden">
+                    <label class="control-label col-sm-2 labels" for="postalCode">Postal Code</label>
+                    <div class="col-sm-10">
+                        <input id="postalCode" class="form-control" type="text" placeholder="Postal Code" required>
+                        <div id="errorPostalCode" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row artist hidden">
+                    <label class="control-label col-sm-2 labels" for="contactNumber1">Contact Number</label>
+                    <div class="col-sm-10">
+                        <input id="contactNumber1" class="form-control" type="text" placeholder="Contact Number 1" required>
+                        <div id="errorContactNumber1" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row artist hidden">
+                    <label class="control-label col-sm-2 labels" for="contactNumber2">Contact Number</label>
+                    <div class="col-sm-10">
+                        <input id="contactNumber2" class="form-control" type="text" placeholder="Contact Number 2" required>
+                        <div id="errorContactNumber2" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+          
+        <div class="form-group row">
+          <label id="fnr" class="control-label col-sm-2 labels" for="firstName">First Name</label>
+          <div class="col-sm-10">
+            <input id="firstName" class="form-control" type="text" placeholder="First Name" required>
+            <div id="errorFirstName" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label id="lnr" class="control-label col-sm-2 labels" for="lastName">Last Name</label>
+          <div class="col-sm-10">
+            <input id="lastName" class="form-control" type="text" placeholder="Last Name" required>
+            <div id="errorLastName" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-sm-2 labels" for="phoneNumber">Phone Number</label>
+          <div class="col-sm-10">
+            <input id="phoneNumber" class="form-control" type="number" placeholder="0123456789" required>
+            <div id="errorPhoneNumber" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-sm-2 labels" for="bankName">Bank Name</label>
+          <div class="col-sm-10">
+            <select class="form-control" name="Bank" id="bankName">
+              <option value="Absa Bank" selected>Absa Bank</option>
+              <option value="African Bank">African Bank</option>
+              <option value="Albaraka Bank">Albaraka Bank</option>
+              <option value="BNP Parabas SA">BNP Parabas SA</option>
+              <option value="Bank Zero">Bank Zero</option>
+              <option value="Bidvest Bank">Bidvest Bank</option>
+              <option value="Capitec Bank">Capitec Bank</option>
+              <option value="Citi Bank">Citi Bank</option>
+              <option value="Discovery Bank">Discovery Bank</option>
+              <option value="FBC Fidelity Bank">FBC Fidelity Bank</option>
+              <option value="Finbond Mutual Bank">Finbond Mutual Bank</option>
+              <option value="Finbond Net1">Finbond Net1</option>
+              <option value="FNB">FNB</option>
+              <option value="Grindrod Bank">Grindrod Bank</option>
+              <option value="Grobank LTD">Grobank LTD</option>
+              <option value="HBZ Bank">HBZ Bank</option>
+              <option value="HSBC Bank">HSBC Bank</option>
+              <option value="Habib Overseas Bank">Habib Overseas Bank</option>
+              <option value="Investec Bank">Investec Bank</option>
+              <option value="Ithala Bank">Ithala Bank</option>
+              <option value="JP Morgan Chase Bank">JP Morgan Chase Bank</option>
+              <option value="Mercantile Bank">Mercantile Bank</option>
+              <option value="Nedbank">Nedbank</option>
+              <option value="Olympus Mobile">Olympus Mobile</option>
+              <option value="Rand Merchant Bank">Rand Merchant Bank</option>
+              <option value="SA Post Office">SA Post Office</option>
+              <option value="SA Reserve Bank">SA Reserve Bank</option>
+              <option value="Sasfin Bank">Sasfin Bank</option>
+              <option value="Standard Bank">Standard Bank</option>
+              <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+              <option value="TymeBank">TymeBank</option>
+              <option value="Ubank LTD">Ubank LTD</option>
+              <option value="VBS Mutual Bank">VBS Mutual Bank</option>
+            </select>
+            <div id="errorBankName" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-sm-2 labels" for="accountType">Account Type</label>
+          <div class="col-sm-10">
+            <select class="form-control" name="Bank" id="accountType">
+              <option value="Debit" selected>Debit Account</option>
+              <option value="Credit">Credit Account</option>
+            </select>
+            <div id="errorAccountType" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-sm-2 labels" for="branchCode">Branch Code</label>
+          <div class="col-sm-10">
+            <input id="branchCode" class="form-control" type="number" placeholder="0123" required>
+            <div id="errorBranchCode" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-sm-2 labels" for="accountNumber">Account Number</label>
+          <div class="col-sm-10">
+            <input id="accountNumber" class="form-control" type="text" placeholder="0123456789" required>
+            <div id="errorAccountNumber" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-sm-2 labels" for="birthDate">Birth Date</label>
+          <div class="col-sm-10">
+            <input id="birthDate" class="form-control" type="date" required>
+            <div id="errorBirthDate" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-sm-2 labels" for="emailConfirmation">Confirm Email</label>
+          <div class="col-sm-10">
+            <input id="emailConfirmation" class="form-control" type="text" placeholder="John@gmail.com" required>
+            <div id="errorEmailConfirmation" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="control-label col-sm-2 labels" for="passwordConfirmation">Password</label>
+          <div class="col-sm-10">
+            <input id="passwordConfirmation" class="form-control" type="password" placeholder="****" disabled>
+            <div id="errorPasswordConfirmation" class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+          <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" onclick="completeProfile()">Save Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  </div>
+  </main>
+  <footer>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      
+      <script src="/__/firebase/8.0.0/firebase-app.js"></script>
+      
+      <!-- Add Firebase products that you want to use -->
+      <script src="/__/firebase/8.0.0/firebase-auth.js"></script>
+      <script src="/__/firebase/8.0.1/firebase-firestore.js"></script>
+      <script src="/__/firebase/8.0.1/firebase-storage.js"></script>
+      <!-- Load the Firebase SDKs before loading this file -->
+      <script src="/__/firebase/init.js"></script>
+<script src="./static/js/profile.js"></script>
+<script src="./static/js/logout.js"></script>
+</footer>
+</body>
+</html>

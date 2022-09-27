@@ -1,0 +1,42 @@
+footer {
+  box-shadow: 0 5px 10px #3d2173a1;
+  height: 10vh;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+}
+.controls > div {
+  margin: 0px 30px;
+  cursor: pointer;
+}
+.controls i.fa {
+  font-size: 20px;
+  margin-top: 25px;
+  color: #2e3034;
+}
+.controls i.fa:hover {
+  color: #ddd;
+}
+
+#heart {
+  color: red;
+}
+
+.controls > div.play-pause-control i.fa-play {
+  display: none;
+}
+.controls > div.play-pause-control.paused i.fa-play {
+  display: block;
+}
+.controls > div.play-pause-control.paused i.fa-pause {
+  display: none;
+}
+
+#download {
+  background-color: transparent;
+  border-style: none;
+  box-shadow: none;
+  cursor: pointer;
+  margin-left: 15px;
+}

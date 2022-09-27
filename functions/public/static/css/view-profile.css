@@ -1,0 +1,43 @@
+body {
+    background-color: rgb(40, 40, 40);
+    font-family: Open sans;
+  }
+  
+  .profile-button {
+    background: rgb(239, 82, 97, 1);
+    box-shadow: none;
+    border: none;
+  }
+  
+  .profile-button:hover {
+    background: rgb(220, 82, 97, 1);
+  }
+  
+  .labels {
+    font-size: 11px;
+  }
+  
+  .rounded-circle {
+    width: 170px;
+    height: 170px;
+    margin-bottom: 20px;
+  }
+  
+  #sign-out {
+    border-color: rgb(239, 82, 97, 1);
+    color: rgb(239, 82, 97, 1);
+  }
+  #sign-out:hover {
+    background-color: rgb(239, 82, 97, 1);
+    color: #fff;
+  }
+  
+  .list-group-item i {
+    color: rgb(194, 194, 194);
+    float: right;
+    visibility: hidden;
+  }
+  
+  .list-group-item:hover i {
+    visibility: visible;
+  }

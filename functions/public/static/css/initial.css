@@ -1,0 +1,26 @@
+body{
+    position: relative;
+    background: #fff;
+    font-family: "Nunito", sans-serif;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 100%);
+    position: relative;
+    background-attachment: fixed;
+}
+
+.main-div {
+    text-align: center;
+}
+
+main{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

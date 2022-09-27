@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <header class="head">
+        <a href="webregistration.html"><i class="fas fa-arrow-alt-circle-left fa-customize"></i></a>
+    </header>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <label class="label">Upload A Song</label>
+        <!--  
+        <div class="title">
+            <div class="logo"> <img src="background.png" alt="logo" width="170px" height="170px"></div>
+
+        </div>
+        -->
+        <div class="form">
+            <div class="input_field">
+                <input type="text" placeholder="Artist Name" class="input" id="artist">
+                <i class="fas fa-users"></i>
+                <span class = "error"><p id="artist_error"></p></span>
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Album Title" class="input" id="albumTitle">
+                <i class="fas fa-users"></i>
+                <span class = "error"><p id="album_error"></p></span>
+            </div>
+            <div class="input_field">
+
+                <form name="Upload Cover" method="" action="">
+                    <input type="password" placeholder="Upload Cover" class="input" disabled>
+                </form>
+                <i class="fas fa-image">
+                    <input type="file" accept="image/*" class="btncls" id="cover">
+                </i>
+            </div>
+
+            <div class="input_field">
+                <input type="text" placeholder="Genre" class="input" disabled>
+                <i class="fas fa-compact-disc"> 
+                    <select name="Genre" class="btncls" id="genre">
+                        <option value = "Hip-Hop" selected>Hip-Hop</option>
+                        <option value = "Techno" >Techno</option>
+                        <option value = "Soul">Soul</option>
+                        <option value = "Heavy Metal">Heavy Metal</option>
+                        <option value = "Classical music">Classical music</option>
+                        <option value = "Musical Theatre">Musical Theatre</option>
+                        <option value = "Rock">Rock</option>
+                        <option value = "Pop Music">Pop Music</option>
+                        <option value = "Jingles">Jingles</option>
+                        <option value = "Folk Music">Folk Music</option>
+                        <option value = "Country Music">Country Music</option>
+                        <option value = "House">House</option>
+                        <option value = "RnB" >RnB</option>
+                        <option value = "Blues">Blues</option>
+                        <option value = "Music Of Africa">Music Of Africa</option>
+                        <option value = "Jazz">Jazz</option>
+                        <option value = "Electro">Electro</option>
+                        <option value = "Rhythm and blues">Rhythm and blues</option>
+                        <option value = "Spiritual">Spiritual</option>
+                    </select>
+                </i>
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Explcit Rating" class="input" disabled>
+                <i class="fas fa-compact-disc"> 
+                    <select name="explicit" class="btncls" id="explicit">
+                        <option value = "true" selected>Yes</option>
+                        <option value = "false" >No</option>
+                    </select>
+                </i>
+            </div>
+            <div class=" input_field">
+                <input type="text" placeholder="Song Title" class="input" id="songTitle">
+                <i class="fas fa-music"></i>
+                <span class = "error"><p id="title_error"></p></span>
+            </div>
+            <div class=" input_field">
+                <form name="Upload Song" method="" action="">
+                    <input type="text" placeholder="Upload the song" class="input" disabled>
+                </form>
+                <i class="fas fa-upload">
+                    <input type="file" accept="audio/*" class="btncls" id="music">
+                    <span class = "error"><p id="music_error"></p></span>
+                </i>
+
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Release date" class="input" disabled>
+                <input type="date" name="dob" class="btnclsa" id="releaseDate">
+                <i class="fas fa-calendar-day"></i>
+                <span class = "error"><p id="year_error"></p></span>
+            </div>
+            <div class="btn">
+                <a href="#">Upload</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
